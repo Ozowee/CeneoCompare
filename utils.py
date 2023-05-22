@@ -57,5 +57,5 @@ class GetProducts():
                 AllProductsDetails.append(singleProductDetails)
             print(AllProductsDetails)
             return AllProductsDetails
-dupa = GetProducts()
-dupa.ScrapProducts("iphone 14 pro")
+iphone = GetProducts()
+iphone.ScrapProducts("iphone 14 pro")
