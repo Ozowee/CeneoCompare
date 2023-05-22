@@ -6,9 +6,9 @@ Ceneo Compare to aplikacja napisana w Pythonie, która służy do wyszukiwania i
 
 ## Funkcje
 
-[x] Wyszukiwanie produktów na Ceneo.pl na podstawie zapytań użytkowników.
-[x] Porównywanie cen produktów i prezentowanie trzech najkorzystniejszych ofert.
-[x] Tworzenie wykresu historii cen dla danego produktu.
+- Wyszukiwanie produktów na Ceneo.pl na podstawie zapytań użytkowników.
+- Porównywanie cen produktów i prezentowanie trzech najkorzystniejszych ofert.
+- Tworzenie wykresu historii cen dla danego produktu.
 
 ## Technologie
 
