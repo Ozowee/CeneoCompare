@@ -98,7 +98,11 @@ class GetProducts():
         plt.ylabel("Cena")
         plt.tight_layout()
         plt.show()
-iphone = GetProducts("iphone 14 pro")
+
+
+# iphone = GetProducts("iphone 14 pro")
+# iphone.ScrapProducts()
+# print(iphone.AllProductsDetails)
 #iphone.ScrapProducts()
 #iphone.PriceGraph()
-iphone.GetSpecificProduct("138536499")
+# iphone.GetSpecificProduct("138536499")
