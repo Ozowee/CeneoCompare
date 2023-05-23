@@ -100,6 +100,7 @@ class GetProducts():
                                                         }
             sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: int(x[1]['productPrice'])))
             self.SpecificProductDetails = sorted_data
+            print(f"Scrapped {productName} data")
             
     def PriceGraph(self):
         prices = []
@@ -118,7 +119,7 @@ class GetProducts():
         plt.xticks(rotation=90,fontsize=10)
         plt.tight_layout()
         plt.savefig(f'static/{product_name}.png')
-        
+        print("Graph successfully generated!")
 
         
 iphone = GetProducts("iphone 14 pro")
