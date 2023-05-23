@@ -24,6 +24,7 @@ class GetProducts():
         }
         self.query = query
         self.AllProductsDetails = {}
+        self.SpecificProductDetails = {}
     def ScrapProducts(self):
 
         keyword = self.query.replace(" ","+")
@@ -37,30 +38,37 @@ class GetProducts():
             
             for product in container:
                 singleProductDetails = []
-                productID = str(product).split('data-productid="')[1].split('"')[0]
-                productName = str(product).split('data-productname="')[1].split('"')[0]
-                productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
                 try:
-                    productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
+                    productID = str(product).split('data-productid="')[1].split('"')[0]
+                    productName = str(product).split('data-productname="')[1].split('"')[0]
+                    productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
+                    productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
+                    productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
+                    try:
+                        productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
+                    except IndexError:
+                        req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=self.headers)
+                        if req_image.status_code != 200:
+                            print(f"Connection error, status code: {req_image.status_code}")
+                        else:
+                            soupImage = BeautifulSoup(req_image.text,'lxml')
+                            containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
+                            productImageUrl = "https:"+str(containerImage).split('href="')[1].split('"')[0]
                 except IndexError:
-                    req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=self.headers)
-                    if req_image.status_code != 200:
-                        print(f"Connection error, status code: {req_image.status_code}")
-                    else:
-                        soupImage = BeautifulSoup(req_image.text,'lxml')
-                        containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
-                        productImageUrl = "https:"+str(containerImage).split('href="')[1].split('"')[0]
-                productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
-                productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
-                
-                self.AllProductsDetails[productName] = {
-                    "productID":productID,
-                    "productPrice":productPrice,
-                    "productIMG":productImageUrl,
-                    "productScore":productScore,
-                    "productReviews":productReviews
-                                                        }
-
+                    productScore = "N/A"
+                try:
+                    self.AllProductsDetails[productName] = {
+                        "productID":productID,
+                        "productPrice":productPrice,
+                        "productIMG":productImageUrl,
+                        "productScore":productScore,
+                        "productReviews":productReviews
+                                                            }
+                except UnboundLocalError:
+                    self.AllProductsDetails["errorCode"] = {
+                        "ErrorInfo":"Wrong variable on input"
+                    }
+            
     def GetSpecificProduct(self,productID):
         req_specific = requests.get(f'https://www.ceneo.pl/{productID}',headers=self.headers)
         if req_specific.status_code !=200:
@@ -80,8 +88,16 @@ class GetProducts():
                     dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
                     retailerUrl = f"https://koszyk.ceneo.pl/dodaj/{dataOfferID}"
                     ratailerName = str(data).split('img alt="')[1].split('"')[0]
-                
 
+
+                self.SpecificProductDetails[productName] = {
+                    "productPrice":productPrice,
+                    "ratailerName":ratailerName,
+                    "retailerUrl":retailerUrl,
+                    "retailerReviews":retailerReviews,
+                    "retailerScore":retailerScore
+                                                        }
+            
     def PriceGraph(self):
         values = []
         indexes = []
@@ -99,7 +115,7 @@ class GetProducts():
         plt.ylabel("Cena")
         plt.tight_layout()
         plt.show()
-iphone = GetProducts("iphone 14 pro")
+iphone = GetProducts("iphone 13 pro")
 #iphone.ScrapProducts()
 #iphone.PriceGraph()
 iphone.GetSpecificProduct("138536499")
