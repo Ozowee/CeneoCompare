@@ -34,6 +34,7 @@ class GetProducts():
         else:
             soup = BeautifulSoup(req_scrap.text,'lxml')
             container = soup.find_all("div",{"class":"cat-prod-row js_category-list-item js_clickHashData js_man-track-event"})
+            
             for product in container:
                 singleProductDetails = []
                 productID = str(product).split('data-productid="')[1].split('"')[0]
