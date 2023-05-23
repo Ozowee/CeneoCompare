@@ -49,7 +49,7 @@ class GetProducts():
                     else:
                         soupImage = BeautifulSoup(req_image.text,'lxml')
                         containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
-                        productImageUrl = str(containerImage).split('href="')[1].split('"')[0]
+                        productImageUrl = "https:"+str(containerImage).split('href="')[1].split('"')[0]
                 productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
                 productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
                 
@@ -77,9 +77,10 @@ class GetProducts():
                     retailerUrl = "https://www.ceneo.pl"+str(data).split('<a class="button button--primary button--flex go-to-shop" ')[1].split('rel')[0].split('href="')[1].split('"')[0]
                     ratailerName = str(data).split('data-shopurl="')[1].split('"')[0]
                 except IndexError:
-                    retailerUrl = "NULL"
+                    dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
+                    retailerUrl = f"https://koszyk.ceneo.pl/dodaj/{dataOfferID}"
                     ratailerName = str(data).split('img alt="')[1].split('"')[0]
-                print(retailerUrl)
+                
 
     def PriceGraph(self):
         values = []
