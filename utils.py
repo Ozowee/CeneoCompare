@@ -7,7 +7,7 @@ class GetProducts():
         self.query = query
     def ScrapProducts(self,query):
         self.query = query
-
+        self.counter = 0
         headers = {
             'Host': 'www.ceneo.pl',
             'Cache-Control': 'max-age=0',
@@ -34,28 +34,35 @@ class GetProducts():
             soup = BeautifulSoup(req_scrap.text,'lxml')
             #cat-prod-row__body
             container = soup.find_all("div",{"class":"cat-prod-row js_category-list-item js_clickHashData js_man-track-event"})
+            
             for product in container:
-                singleProductDetails = []
-                productID = str(product).split('data-productid="')[1].split('"')[0]
-                productName = str(product).split('data-productname="')[1].split('"')[0]
-                productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
-                try:
-                    productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
-                except IndexError:
-                    req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=headers)
-                    if req_image.status_code != 200:
-                        print(f"Connection error, status code: {req_image.status_code}")
-                    else:
-                        soupImage = BeautifulSoup(req_image.text,'lxml')
-                        containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
-                        productImageUrl = str(containerImage).split('href="')[1].split('"')[0]
-                productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
-                productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
-                #print(productID,productName,productPrice,productImageUrl,productScore,productReviews)
-                for i in [productID,productName,productPrice,productImageUrl,productScore,productReviews]:
-                    singleProductDetails.append(i)
-                AllProductsDetails.append(singleProductDetails)
+                if self.counter > 10:
+                    break
+                else:
+                    self.counter += 1
+                    singleProductDetails = []
+                    productID = str(product).split('data-productid="')[1].split('"')[0]
+                    productName = str(product).split('data-productname="')[1].split('"')[0]
+                    productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
+                    try:
+                        productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
+                    except IndexError:
+                        req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=headers)
+                        if req_image.status_code != 200:
+                            print(f"Connection error, status code: {req_image.status_code}")
+                        else:
+                            soupImage = BeautifulSoup(req_image.text,'lxml')
+                            containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
+                            productImageUrl = str(containerImage).split('href="')[1].split('"')[0]
+                    productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
+                    productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
+                    #print(productID,productName,productPrice,productImageUrl,productScore,productReviews)
+                    for i in [productID,productName,productPrice,productImageUrl,productScore,productReviews]:
+                        singleProductDetails.append(i)
+                    AllProductsDetails.append(singleProductDetails)
             print(AllProductsDetails)
             return AllProductsDetails
-iphone = GetProducts()
-iphone.ScrapProducts("iphone 14 pro")
+        
+
+# iphone = GetProducts()
+# iphone.ScrapProducts("iphone 14 pro")

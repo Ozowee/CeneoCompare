@@ -1,5 +1,5 @@
 from flask import Flask,render_template,jsonify,request
-
+from utils import GetProducts
 app = Flask(__name__)
 
 
@@ -11,8 +11,14 @@ def mainRoute():
 @app.route('/search',methods=['GET'])
 def searchProduct():
     data = request.args.get('s','')
-    return (jsonify({"message":"Success",'data':data}),200)
+    
+    genOutput = GetProducts().ScrapProducts(data)
 
+    return render_template('productSite.html')#,productData=genOutput)
+    
+@app.route('/product/<productID>',methods=['GET'])
+def ProductPage():
+    return render_template('productPage.html',productData='')
 
 if __name__== "__main__":
     app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
