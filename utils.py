@@ -118,4 +118,4 @@ class GetProducts():
 iphone = GetProducts("iphone 13 pro")
 #iphone.ScrapProducts()
 #iphone.PriceGraph()
-iphone.GetSpecificProduct("138536499")
+# iphone.GetSpecificProduct("138536499")

@@ -83,92 +83,23 @@
     </div> 
 
     <div class="main-container">
-        <a href="https://www.ceneo.pl/139059194", target="_blank">
+        {% for phoneName,phoneData in data.items()%}
+
+
+
+        <a href="https://www.ceneo.pl/{{phoneData.productID}}", target="_blank">
         <div class="small-container">
-            
-                <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
+
+                <h3 class="small-container-header">{{phoneName}}</h3>
+                <label><span class='small-container-data'>Najlepsza cena:</span> {{phoneData.productPrice}}</label> <br/><br/>
+                <label><span class='small-container-data'>Ceneo score:</span> {{phoneData.productScore}} </label><br/><br/>
+                <label><span class='small-container-data'>Ilosc opini:</span> {{phoneData.productReviews}} </label><br/><br/>
+                <img src={{phoneData.productIMG}} with="100px" height="200px">
             
         </div></a>
 
-        <a href="https://www.ceneo.pl/139059194", target="_blank">
-            <div class="small-container">
-                
-                    <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                    <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                    <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                    <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                    <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                
-            </div></a>
-
-            <a href="https://www.ceneo.pl/139059194", target="_blank">
-                <div class="small-container">
-                    
-                        <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                        <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                        <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                        <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                        <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                    
-                </div></a>
-
-            <a href="https://www.ceneo.pl/139059194", target="_blank">
-                <div class="small-container">
-                    
-                        <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                        <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                        <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                        <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                        <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                    
-                </div></a>
-                <a href="https://www.ceneo.pl/139059194", target="_blank">
-                    <div class="small-container">
-                        
-                            <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                            <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                            <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                            <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                            <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                        
-                    </div></a>
-            
-                    <a href="https://www.ceneo.pl/139059194", target="_blank">
-                        <div class="small-container">
-                            
-                                <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                                <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                                <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                                <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                                <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                            
-                        </div></a>
-            
-                        <a href="https://www.ceneo.pl/139059194", target="_blank">
-                            <div class="small-container">
-                                
-                                    <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                                    <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                                    <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                                    <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                                    <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                                
-                            </div></a>
-            
-                        <a href="https://www.ceneo.pl/139059194", target="_blank">
-                            <div class="small-container">
-                                
-                                    <h3 class="small-container-header">Iphone 14 Pro max blue dupa 256gb</h3>
-                                    <label><span class='small-container-data'>Najlepsza cena:</span> 10000zł</label> <br/><br/>
-                                    <label><span class='small-container-data'>Ceneo score:</span> 4.9</label><br/><br/>
-                                    <label><span class='small-container-data'>Ilosc opini:</span> 492</label><br/><br/>
-                                    <img src="https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" with="100px" height="200px">
-                                
-                            </div></a>
+        {% endfor %}
+       
     </div>
 
 <footer>

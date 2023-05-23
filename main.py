@@ -10,11 +10,11 @@ def mainRoute():
 
 @app.route('/search',methods=['GET'])
 def searchProduct():
-    data = request.args.get('s','')
-    
-    genOutput = GetProducts().ScrapProducts(data)
+    data = request.args.get('s','')    
+    output = GetProducts(data)
+    output.ScrapProducts()
 
-    return render_template('productSite.html')#,productData=genOutput)
+    return render_template('productSite.html',data=output.AllProductsDetails)
     
 @app.route('/product/<productID>',methods=['GET'])
 def ProductPage():
