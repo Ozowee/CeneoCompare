@@ -68,7 +68,7 @@ class GetProducts():
                     self.AllProductsDetails["errorCode"] = {
                         "ErrorInfo":"Wrong variable on input"
                     }
-            
+            print(self.AllProductsDetails)
     def GetSpecificProduct(self,productID):
         req_specific = requests.get(f'https://www.ceneo.pl/{productID}',headers=self.headers)
         if req_specific.status_code !=200:
@@ -77,6 +77,7 @@ class GetProducts():
             soup = BeautifulSoup(req_specific.text,'lxml')
             container = soup.findAll("li",{"class":"product-offers__list__item js_productOfferGroupItem"})
             for data in container:
+                dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
                 productPrice = str(data).split('data-price="')[1].split('"')[0]
                 productName = str(data).split('data-gaproductname="')[1].split('"')[0].split('/')[1]
                 retailerReviews = str(data).split('data-mini-shop-info-url="')[2].split('</span>')[0].split('>')[1]
@@ -85,37 +86,43 @@ class GetProducts():
                     retailerUrl = "https://www.ceneo.pl"+str(data).split('<a class="button button--primary button--flex go-to-shop" ')[1].split('rel')[0].split('href="')[1].split('"')[0]
                     ratailerName = str(data).split('data-shopurl="')[1].split('"')[0]
                 except IndexError:
-                    dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
-                    retailerUrl = f"https://koszyk.ceneo.pl/dodaj/{dataOfferID}"
-                    ratailerName = str(data).split('img alt="')[1].split('"')[0]
+                    # retailerUrl = f"https://koszyk.ceneo.pl/dodaj/{dataOfferID}"
+                    # ratailerName = str(data).split('img alt="')[1].split('"')[0]
+                    ratailerName = "ceneo.pl"
 
-
-                self.SpecificProductDetails[productName] = {
+                self.SpecificProductDetails[dataOfferID] = {
+                    "productName":productName,
                     "productPrice":productPrice,
                     "ratailerName":ratailerName,
                     "retailerUrl":retailerUrl,
                     "retailerReviews":retailerReviews,
                     "retailerScore":retailerScore
                                                         }
+            sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: int(x[1]['productPrice'])))
+            self.SpecificProductDetails = sorted_data
             
     def PriceGraph(self):
-        values = []
-        indexes = []
-        for i in self.AllProductsDetails:
-            if len(indexes)<=10:
-                price = i[2]
-                productName = i[1]
-                values.append(float(i[2]))
-                indexes.append(i[1])
-        unique_models = list(set(indexes))
-        x = numpy.arange(len(unique_models))
-        plt.bar(x,values)
-        plt.xticks(x,unique_models,rotation=90)
-        plt.xlabel("Model")
-        plt.ylabel("Cena")
+        prices = []
+        retailers = []
+        product_name = ""
+        for key,value in self.SpecificProductDetails.items():
+            if product_name=="":
+                product_name = value.get('productName')
+            prices.append(value.get('productPrice'))
+            retailers.append(value.get('ratailerName'))
+        plt.figure(figsize=(12,6))
+        plt.bar(retailers,prices)
+        plt.xlabel('Retailer')
+        plt.ylabel('Product Price')
+        plt.title(product_name)
+        plt.xticks(rotation=90,fontsize=10)
         plt.tight_layout()
-        plt.show()
-iphone = GetProducts("iphone 13 pro")
+        plt.savefig(f'static/{product_name}.png')
+        
+
+        
+iphone = GetProducts("iphone 14 pro")
 #iphone.ScrapProducts()
-#iphone.PriceGraph()
-# iphone.GetSpecificProduct("138536499")
+iphone.GetSpecificProduct("138536499")
+iphone.PriceGraph()
+
