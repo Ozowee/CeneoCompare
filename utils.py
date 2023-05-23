@@ -76,7 +76,8 @@ class GetProducts():
                     retailerUrl = "https://www.ceneo.pl"+str(data).split('<a class="button button--primary button--flex go-to-shop" ')[1].split('rel')[0].split('href="')[1].split('"')[0]
                     ratailerName = str(data).split('data-shopurl="')[1].split('"')[0]
                 except IndexError:
-                    retailerUrl = "NULL"
+                    dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
+                    retailerUrl = f"https://koszyk.ceneo.pl/dodaj/{dataOfferID}"
                     ratailerName = str(data).split('img alt="')[1].split('"')[0]
                 print(retailerUrl)
 
