@@ -4,9 +4,228 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ProductName</title>
+    <link rel="stylesheet" href="temp.css">
+    <script>
+        function redirectUser() {
+          var searchTerm = document.getElementById('searchBar').value;
+          window.location.href = "/search?s=" + (searchTerm);
+        }
+      </script>
+      <script>
+        function changeImage(icon) {
+            var chartIcon = document.getElementById('chartIcon');
+            var techIcon = document.getElementById('techIcon');
+            var priceCharts = document.querySelector('.priceCharts img');
+            
+            if (icon === 'chart') {
+                chartIcon.style.backgroundColor = '#f96d00';
+                techIcon.style.backgroundColor = '#222831';
+                priceCharts.src = "https://static1.money.pl/i/h/80/art370768.jpg";  
+            } else if (icon === 'tech') {
+                techIcon.style.backgroundColor = '#f96d00';
+                chartIcon.style.backgroundColor = '#222831';
+                priceCharts.src = "https://crido.pl/wp-content/uploads/2021/03/luka_vat.png";  
+            }
+        }
+    </script>
+    
 </head>
 <body>
-    aslalas
+    <div class="heading-container">
+        <h1>Szukaj czegos nowego!</h1>
+    </div>
+    <div class="search-container">
+        <div class="search-bar-container">
+            <input id='searchBar' class="search-bar" type="text" placeholder="Wpisz tutaj...">
+            <button class="search-button" type="button" onclick="redirectUser()">Wyszukaj</button>
+        </div>
+    </div>
+    <div class="container">
+        <div id="productShort">
+            <img src="https://image.ceneostatic.pl/data/products/138536499/f-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" alt="iphone" >
+            <h1>iPhone 14 Pro</h1>
+            <p>Smartfon Apple z ekranem 6,1 cala, wyświetlacz Super Retina XDR. Aparat 48 Mpix, pamięć 6 GB RAM, bateria 3200mAh. Obsługuje sieć: 5G</p>
+            
+            <div id="icons">
+                <img src="/static/chartIcon.png" width="50" height="50" onclick="changeImage('chart')" id="chartIcon">
+                <img src="/static/techIcon.png" width="50" height="50" onclick="changeImage('tech')" id="techIcon">
+            </div>
+            
+        </div>
+
+        <div class="priceCharts">
+            <img src="https://static1.money.pl/i/h/80/art370768.jpg" alt="">
+        </div>
+    </div>
+
+    <div id='Offersheader'><h2>Wszystkie oferty</h2></div>
+
+    <div id="OffersMainContainer">
+
+        <div class="line"></div>
+        <a href="http://google.com">
+        <div class="Offer">
+            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+            <p>komputronik</p>
+            <p>1744 opinie</p>
+            <p>5397 pln</p>
+            <p>Free ship</p>
+        </div>
+        </a>
+        
+        <div class="line"></div>
+        <a href="http://google.com">
+        <div class="Offer">
+            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+            <p>komputronik</p>
+            <p>1744 opinie</p>
+            <p>5397 pln</p>
+            <p>Free ship</p>
+        </div>
+        </a>
+        
+        <div class="line"></div>
+        <a href="http://google.com">
+            <div class="Offer">
+                <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                <p>komputronik</p>
+                <p>1744 opinie</p>
+                <p>5397 pln</p>
+                <p>Free ship</p>
+            </div>
+            </a>
+            
+            <div class="line"></div>
+            <a href="http://google.com">
+                <div class="Offer">
+                    <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                    <p>komputronik</p>
+                    <p>1744 opinie</p>
+                    <p>5397 pln</p>
+                    <p>Free ship</p>
+                </div>
+                </a>
+                
+                <div class="line"></div>
+                <a href="http://google.com">
+                    <div class="Offer">
+                        <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                        <p>komputronik</p>
+                        <p>1744 opinie</p>
+                        <p>5397 pln</p>
+                        <p>Free ship</p>
+                    </div>
+                    </a>
+                    
+                    <div class="line"></div>
+                    <a href="http://google.com">
+                        <div class="Offer">
+                            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                            <p>komputronik</p>
+                            <p>1744 opinie</p>
+                            <p>5397 pln</p>
+                            <p>Free ship</p>
+                        </div>
+                        </a>
+                        
+                        <div class="line"></div>
+                        <a href="http://google.com">
+                            <div class="Offer">
+                                <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                                <p>komputronik</p>
+                                <p>1744 opinie</p>
+                                <p>5397 pln</p>
+                                <p>Free ship</p>
+                            </div>
+                            </a>
+                            
+                            <div class="line"></div>
+
+                            <a href="http://google.com">
+                                <div class="Offer">
+                                    <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                                    <p>komputronik</p>
+                                    <p>1744 opinie</p>
+                                    <p>5397 pln</p>
+                                    <p>Free ship</p>
+                                </div>
+                                </a>
+                                
+                                <div class="line"></div>
+
+                                <a href="http://google.com">
+        <div class="Offer">
+            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+            <p>komputronik</p>
+            <p>1744 opinie</p>
+            <p>5397 pln</p>
+            <p>Free ship</p>
+        </div>
+        </a>
+        
+        <div class="line"></div>
+        <a href="http://google.com">
+            <div class="Offer">
+                <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                <p>komputronik</p>
+                <p>1744 opinie</p>
+                <p>5397 pln</p>
+                <p>Free ship</p>
+            </div>
+            </a>
+            
+            <div class="line"></div>
+            <a href="http://google.com">
+        <div class="Offer">
+            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+            <p>komputronik</p>
+            <p>1744 opinie</p>
+            <p>5397 pln</p>
+            <p>Free ship</p>
+        </div>
+        </a>
+        
+        <div class="line"></div>
+        <a href="http://google.com">
+        <div class="Offer">
+            <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+            <p>komputronik</p>
+            <p>1744 opinie</p>
+            <p>5397 pln</p>
+            <p>Free ship</p>
+        </div>
+        </a>
+        
+        <div class="line"></div>
+        <a href="http://google.com">
+            <div class="Offer">
+                <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                <p>komputronik</p>
+                <p>1744 opinie</p>
+                <p>5397 pln</p>
+                <p>Free ship</p>
+            </div>
+            </a>
+            
+            <div class="line"></div>
+            <a href="http://google.com">
+                <div class="Offer">
+                    <img src="https://image.ceneostatic.pl/imageschain/data/shops/945/logo.jpg;data/custom_images/585/custom_image.png" alt="komputronik">
+                    <p>komputronik</p>
+                    <p>1744 opinie</p>
+                    <p>5397 pln</p>
+                    <p>Free ship</p>
+                </div>
+                </a>
+                
+                <div class="line"></div>
+
+    </div>
+    
+<footer>
+    Created by Michal Majewski & Rafal Ciach
+</footer>
+
 </body>
 </html>
