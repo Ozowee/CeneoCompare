@@ -17,9 +17,8 @@ def searchProduct():
     return render_template('productSite.html',data=output.AllProductsDetails)
     
 @app.route('/product/<productID>',methods=['GET'])
-def ProductPage():
-    return render_template('productPage.html',productData='')
+def ProductPage(productID):
+    return render_template('productPage.html')
 
 if __name__== "__main__":
-    app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
     app.run()

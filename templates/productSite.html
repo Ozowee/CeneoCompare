@@ -5,8 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceneo Compare</title>
-
     <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin:0;
+        background: #222831;
+      }
+      
+      .heading-container { 
+        color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .productData-title {
+        color:#f96d00;
+        display: inline;
+      }
+      
+      .main-container{
+        background-color: #393e46;
+        color: #f2f2f2;
+        margin:10px;
+        padding:10px;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;  
+        }
+
+      
+      .small-container{
+        margin:20px;
+        padding-left: 20px;
+        padding-top:5px;
+        padding-bottom: 15px;
+        background-color: #222831;
+        border-radius: 10px;
+        transition: 1 ease;
+      }
+      
+      .small-container:hover{
+        background-color: #272c33;
+        cursor: pointer;
+      }
+      
+      a{
+        text-decoration: none;
+        color:#f2f2f2
+      }
+      
+      .hidden{
+        display: none;
+      }
+      
+      .small-container-header{
+        color:#f96d00
+      }
+      
+      .small-container-data{
+        font-weight: 700;
+      }
+      
+      footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #222831;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 5px ;
+      }
+      
+      @media only screen and (max-width: 600px) {
+        .main-container {
+          grid-template-columns: 1fr;
+        }
+      
+        footer {
+          position: relative;
+        }
+      }
+    </style>
+    <!-- <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body {
@@ -37,23 +120,29 @@
 
         .small-container{
         margin:20px;
-        /* padding: 10px; */
+        
         padding-left: 20px;
         padding-top:5px;
         padding-bottom: 15px;
 
-        background: #222831;
+        background-color: #222831;
         border-radius: 10px;
+        transition: 1 ease;
         }
 
 
         .small-container:hover{
             background-color: #272c33;
+            cursor: pointer;
         }
         
         a{
             text-decoration: none;
             color:#f2f2f2
+        }
+
+        .hidden{
+            display: none;
         }
 
         .small-container-header{
@@ -74,8 +163,14 @@
             padding: 5px ;
         }
 
-    </style>
-
+    </style> -->
+    
+    <script>
+        function redirectUser() {
+      var productID = document.getElementById('productID').value;
+      window.location.href = "/product/"+productID;
+    }
+    </script>
 </head>
 <body>
     <div class="heading-container">
@@ -84,19 +179,18 @@
 
     <div class="main-container">
         {% for phoneName,phoneData in data.items()%}
+        <label class="hidden" id ='productID'>{{phoneData.productID}}</label>
 
 
-
-        <a href="https://www.ceneo.pl/{{phoneData.productID}}", target="_blank">
-        <div class="small-container">
-
+        <div  class="small-container" onclick="redirectUser()">
+                
                 <h3 class="small-container-header">{{phoneName}}</h3>
                 <label><span class='small-container-data'>Najlepsza cena:</span> {{phoneData.productPrice}}</label> <br/><br/>
                 <label><span class='small-container-data'>Ceneo score:</span> {{phoneData.productScore}} </label><br/><br/>
                 <label><span class='small-container-data'>Ilosc opini:</span> {{phoneData.productReviews}} </label><br/><br/>
                 <img src={{phoneData.productIMG}} with="100px" height="200px">
             
-        </div></a>
+        </div>
 
         {% endfor %}
        

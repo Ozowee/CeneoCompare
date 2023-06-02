@@ -68,7 +68,7 @@ class GetProducts():
                     self.AllProductsDetails["errorCode"] = {
                         "ErrorInfo":"Wrong variable on input"
                     }
-            print(self.AllProductsDetails)
+            # print(self.AllProductsDetails)
     def GetSpecificProduct(self,productID):
         req_specific = requests.get(f'https://www.ceneo.pl/{productID}',headers=self.headers)
         if req_specific.status_code !=200:
@@ -122,8 +122,8 @@ class GetProducts():
         print("Graph successfully generated!")
 
         
-iphone = GetProducts("iphone 14 pro")
-#iphone.ScrapProducts()
-iphone.GetSpecificProduct("138536499")
-iphone.PriceGraph()
+# iphone = GetProducts("iphone 14 pro")
+# #iphone.ScrapProducts()
+# iphone.GetSpecificProduct("138536499")
+# iphone.PriceGraph()
 
