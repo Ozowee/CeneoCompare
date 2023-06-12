@@ -190,7 +190,7 @@
             if (icon === 'chart') {
                 chartIcon.style.backgroundColor = '#f96d00';
                 techIcon.style.backgroundColor = '#222831';
-                priceCharts.src = "/static/{{data.productDetails.title}}.png";  
+                priceCharts.src = "/static/priceGraph.png";  
             } else if (icon === 'tech') {
                 techIcon.style.backgroundColor = '#f96d00';
                 chartIcon.style.backgroundColor = '#222831';
@@ -207,12 +207,12 @@
     <div class="search-container">
         <div class="search-bar-container">
             <input id='searchBar' class="search-bar" type="text" placeholder="Wpisz tutaj...">
-            <button class="search-button" type="button" onclick="redirectUser()">Wyszukaj</button>
+            <button class="search-button" type="submit" onclick="redirectUser()">Wyszukaj</button>
         </div>
     </div>
     <div class="container">
         <div id="productShort">
-            <img src="https://image.ceneostatic.pl/data/products/138536499/f-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg" alt="iphone" >
+            <img src="{{data.productDetails.img}}", width="350px", height="500px">
             <h1>{{data.productDetails.title}}</h1>
             <p>{{data.productDetails.desc}}</p>
             
@@ -224,7 +224,7 @@
         </div>
 
         <div class="priceCharts">
-            <img src="/static/{{data.productDetails.title}}.png" width="100%" height="100%">
+            <img src="/static/priceGraph.png" width="100%" height="100%">
         </div>
     </div>
 
