@@ -166,8 +166,7 @@
     </style> -->
     
     <script>
-        function redirectUser() {
-      var productID = document.getElementById('productID').value;
+        function redirectUser(productID) {
       window.location.href = "/product/"+productID;
     }
     </script>
@@ -179,17 +178,14 @@
 
     <div class="main-container">
         {% for phoneName,phoneData in data.items()%}
-        <label class="hidden" id ='productID'>{{phoneData.productID}}</label>
-
-
-        <div  class="small-container" onclick="redirectUser()">
+        <div class="small-container" onclick="redirectUser('{{phoneData.productID}}')">
                 
                 <h3 class="small-container-header">{{phoneName}}</h3>
                 <label><span class='small-container-data'>Najlepsza cena:</span> {{phoneData.productPrice}}</label> <br/><br/>
                 <label><span class='small-container-data'>Ceneo score:</span> {{phoneData.productScore}} </label><br/><br/>
                 <label><span class='small-container-data'>Ilosc opini:</span> {{phoneData.productReviews}} </label><br/><br/>
-                <img src={{phoneData.productIMG}} with="100px" height="200px">
-            
+                <img src={{phoneData.productIMG}} with="100px" height="200px"><br/>
+
         </div>
 
         {% endfor %}
