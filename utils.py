@@ -98,8 +98,13 @@ class GetProducts():
                 dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
                 productPrice = str(data).split('data-price="')[1].split('"')[0]
                 productName = str(data).split('data-gaproductname="')[1].split('"')[0].split('/')[1]
-                retailerReviews = str(data).split('data-mini-shop-info-url="')[2].split('</span>')[0].split('>')[1]
-                retailerScore = str(data).split('<span class="screen-reader-text">')[1].split('</span>')[0]
+                try:
+                    retailerReviews = str(data).split('data-mini-shop-info-url="')[2].split('</span>')[0].split('>')[1]
+                    retailerScore = str(data).split('<span class="screen-reader-text">')[1].split('</span>')[0]
+                except IndexError:
+                    retailerReviews = "Brak Opinii"
+                    retailerScore = "N/A"
+                
                 retailerLogo = data.find('div',{"class":"product-offer__store__logo"}).img.get('data-original')
                 try:
                     freeship = data.find('div',{'class':'free-delivery-label'}).text
