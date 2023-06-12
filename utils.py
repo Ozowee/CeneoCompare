@@ -77,11 +77,17 @@ class GetProducts():
             soup = BeautifulSoup(req_specific.text,'lxml')
             container = soup.findAll("li",{"class":"product-offers__list__item js_productOfferGroupItem"})
             productDesc = soup.find('div',{'class':'product-top__product-info__tags'}).text
-            productTitle = soup.title.text.split('-')[0][:-1]
+            productTitle = soup.title.text.replace(' - Cena, opinie na Ceneo.pl','').replace('- ceny, opinie, sklepy - kup tanio na Ceneo.pl','')
             productParams = soup.find('div',{"class":"full-specs"}).table
+            containerImage = soup.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
+
+            productImageUrl = 'https:'+ str(containerImage).split('href="')[1].split('"')[0]
+            # https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg
+            print(productImageUrl)
 
             self.CurrentProductDetails['title'] = productTitle
             self.CurrentProductDetails['desc'] = productDesc 
+            self.CurrentProductDetails['img'] = productImageUrl
 
             params = {}
             for row in productParams.find_all('tr'):
@@ -132,13 +138,13 @@ class GetProducts():
     def PriceGraph(self):
         prices = []
         retailers = []
-        product_name = ""
+        product_name = "priceGraph"
         for key,value in self.SpecificProductDetails.items():
             retailer = value.get('ratailerName')
-            if retailer in retailers:
-                continue
-            if product_name=="":
-                product_name = value.get('productName')
+            # if retailer in retailers:
+            #     continue
+            # if product_name=="":
+            #     product_name = value.get('productName')
             prices.append(value.get('productPrice'))
             retailers.append(retailer)
         plt.figure(figsize=(12,6))
@@ -150,13 +156,11 @@ class GetProducts():
 
         plt.xlabel('Retailer')
         plt.ylabel('Product Price')
-        plt.title(product_name)
+        # plt.title(product_name)
         plt.xticks(rotation=90,fontsize=10)
         plt.tight_layout()
-        product_name = product_name.replace(' ','%20')
         plt.savefig(f'static/{product_name}.png')
         print("Graph successfully generated!")
-        print(product_name)
         
 
         
