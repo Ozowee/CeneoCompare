@@ -1,0 +1,117 @@
+<li class="product-offers__list__item js_productOfferGroupItem">
+<div class="product-offer js_full-product-offer">
+<div class="product-offer__container clickable-offer js_offer-container-click js_product-offer" data-brand="Apple" data-city="Product-Prices" data-click-target="_blank" data-click-url="Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" data-gacategoryname="/Telefony i akcesoria/Smartfony" data-gaproductid="DC/S16202/P138536499/" data-gaproductname="138536499/Apple iPhone 14 Pro 128GB Gwiezdna Czerń" data-hastrustedreviewslogo="1" data-id="ce2c927d-8328-4016-913f-2d127665e4d2" data-isbidding="0" data-isnonintegrated="False" data-offer="448251034" data-offerid="448251034" data-offertype="CPC" data-position="15" data-price="5499" data-productid="138536499" data-productminprice="5299" data-seorating="4.5/3" data-shop="16202" data-shopofferscount="1" data-shopurl="electro.pl" data-trackinfotype="Click">
+<div class="product-offer__store-with-product">
+<div class="product-offer__store">
+<div class="product-offer__store__logo">
+<a class="store-logo go-to-shop" href="/Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" rel="nofollow noopener" target="_blank">
+<img alt="electro.pl" class="js_lazy" data-original="//image.ceneostatic.pl/imageschain/data/shops/16202/logo.jpg;data/custom_images/585/custom_image.png" src="/content/img/icons/pix-empty.png"/>
+</a>
+</div>
+<div class="product-offer__store__logo__rating">
+<span class="stars js_mini-shop-info js_no-conv" data-mini-shop-info-url="Partials/ShopMiniInfo?shopId=16202">
+<span class="score-container score-container--s js_score-container">
+<span class="score-marker score-marker--s" style="width: 90.0%;"></span>
+</span>
+<span class="screen-reader-text">Ocena 4,5 / 5</span>
+</span>
+<span class="link link--accent js_mini-shop-info js_no-conv" data-mini-shop-info-url="Partials/ShopMiniInfo?shopId=16202">836 opinii</span>
+</div>
+<div class="product-offer__store__badges">
+<div class="product-offer__store__logo__rating__trusted-container">
+<img alt="Zaufane opinie" class="js_trustedReviewsTooltip js_lazy product-offer__store__logo__rating__trusted" data-offset-x="-12" data-offset-y="36" data-original="/content/img/icons/logos/zo-only-logo-simple.svg"/>
+</div>
+</div>
+</div>
+<div class="product-offer__product js_product-offer__product js_productName specific-variant-content">
+<div class="product-offer__product__offer-details">
+<div class="product-offer__product__offer-details__name short-name">
+<a class="go-to-shop" href="/Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" rel="nofollow noopener" target="_blank" title="Smartfon APPLE iPhone 14 Pro 128GB 5G 6.1'' 120Hz Gwiezdna czerń | OCHRONA NORTON NA 3 URZĄDZENIA ZA 29,99zł DARMOWY TRANSPORT">
+<span class="short-name__txt">Smartfon APPLE iPhone 14 Pro 128GB 5G 6.1'' 120Hz Gwiezdna czerń | OCHRONA NORTON NA 3 URZĄDZENIA ZA 29,99zł DARMOWY TRANSPORT</span>
+</a>
+</div>
+<div class="product-offer__product__offer-details__labels">
+<div class="product-offer-summary__labels__shop-offer-promo"><span class="product-offer-summary__labels__shop-offer-promo__content">ZAMÓW DZIŚ, ODBIERZ JUTRO</span></div>
+</div>
+</div>
+<div class="product-offer__product__price">
+<a class="product-price go-to-shop" href="/Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" rel="nofollow noopener" target="_blank">
+<span class="price-format nowrap"><span class="price"><span class="value">5 499</span><span class="penny">,00</span></span>zł</span>
+</a>
+<div class="product-offer__product__delivery-section">
+<span class="product-delivery-info js_deliveryInfo" data-info-hook="vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa" data-offset-x="-10" data-productid="138536499">
+<div class="free-delivery-label" data-offset-x="12">Darmowa wysyłka</div>
+</span>
+</div>
+<div class="product-availability" data-hint="Sprzedający posiada wybrany produkt. Decydując się na jego zamówienie możesz liczyć na szybką realizację.">
+<a class="go-to-shop" href="/Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" rel="nofollow noopener" target="_blank">
+<span class="instock">dostępny</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="product-offer__actions js_product-offer__actions js_actions specific-variant-content">
+<a class="button button--primary button--flex go-to-shop" href="/Click/Offer/?e=vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa&amp;a=2" rel="nofollow noopener" target="_blank">
+Idź do sklepu
+</a>
+</div>
+</div>
+<div class="product-offer__details js_offer-details" data-offer="448251034" data-shop="16202">
+<div class="product-offer__details__toolbar">
+<ul class="product-offer__details__toolbar__links">
+<li class="offer-shop-opinions">
+<a class="link js_product-offer-link" href="sklepy/electro.pl-s16202#tab=info" offer-parameter="sklepy/electro.pl-s16202;offer448251034">
+Dane i opinie o electro.pl
+</a>
+</li>
+<li class="link view-offer-details js_no-conv" data-ab="v2" data-new-icon="angle-down">
+Zobacz ofertę
+</li>
+<li class="link hide-offer-details hidden js_no-conv" data-ab="v2" data-new-icon="angle-up">
+O ofercie
+</li>
+<li>
+<a class="link js_add-account-problem-activator" data-accountid="16202" data-offerid="448251034" data-productid="138536499" href="javascript:void(0)" rel="nofollow">
+Zgłoś uwagi
+</a>
+</li>
+<li>
+<a class="link" href="Smartfony;16202-0v.htm" rel="nofollow">
+Smartfony od electro.pl
+</a>
+</li>
+</ul>
+</div>
+<div class="product-offer__details__content product-offer-details">
+<div class="js_product-offer-details__photos specific-variant-content"></div>
+<div class="product-offer-details__main">
+<div class="product-offer-details__section product-offer-details__variants hidden">
+<h4 class="product-offer-details__title">
+Warianty tego produktu
+</h4>
+<ul class="product-offer-details__others-list">
+<li class="product-offer-details__others-list__item variant js_variant" data-details="vS_9ALKa3UNG5U71ADWJSZZOrrhowJD-6ImrI_IBHMZ0gvhOs_Mv4EwE8KgwrSYV3GAmpN19UPo1XHWkjDg95YtA1ox7564wh0mUW8OLApScRMOSDqFnw8O7sU7tf76CSTFaHzCMd-Pk_MrEaWDFTd6YsA-VCLDs62rR6s0gqa7vRzDTjJnX6zBlrO8MXHKBlWg8VDudMwQfIqOSUTMI8px9fNqyLt6RtwMeX8C3q70ZF1ATQ72qVkzDJ5sQAt_fGox4VgFNn9KbMR3CrmbzO_wbsKyowpLLMEi5eYzwOv6kLZu_hi0Bd0Wk0WAKReLmit-e1wzcGoulUEzCWQUN3eavcoNGqqi4_8XlaH9_qSOlUEzCWQUN3aVQTMJZBQ3dS3GyosHBPKCqGKBTMD2qGPSkcbCxK4K7wmxHo15s-kceI1TOkxUW5ROuchnPiFSiEYtcPT1abkIIfJ8NEeviIEzINNQAJkv-8hDCQ_56p5fOJ7ugb7K8ObQcIhu6jSGa" data-nopopup="False" data-offerid="448251034" data-variantselection="False">
+<div class="product-offer-details__others-list__item__container">
+<div class="product-offer-details__others-list__item__image">
+<img alt="Smartfon APPLE iPhone 14 Pro 128GB 5G 6.1'' 120Hz Gwiezdna czerń | OCHRONA NORTON NA 3 URZĄDZENIA ZA 29,99zł DARMOWY TRANSPORT" class="js_variant_image" data-src="//image.ceneostatic.pl/offercandidates/9QDgAHNodHRwczovL3d3dy5lbGVjdHJvLnBsL21lZGlhL2NhY2hlL3Jlc29sdmUvZ2FsbGVyeV94bWwvaW1hZ2VzLzQxLzQxMTgwMTAvU21hcnRmb24tQVBQTEUtMTQtUHJvLUd3aWV6ZG5hLWN6ZXJuLTEuanBn" src=""/>
+</div>
+<div class="product-offer-details__others-list__item__price">
+<span class="price-format nowrap"><span class="price"><span class="value">5 499</span><span class="penny">,00</span></span>zł</span>
+</div>
+<div class="product-offer-details__others-list__item__params">
+</div>
+<div class="product-offer-details__others-list__item__title">
+Smartfon APPLE iPhone 14 Pro 128GB 5G 6.1'' 120Hz Gwiezdna czerń | OCHRONA NORTON NA 3 URZĄDZENIA ZA 29,99zł DARMOWY TRANSPORT
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="product-offer-details__section js_product-offer-details__main-content specific-variant-content"></div>
+</div>
+<div class="js_product-offer-details__additional specific-variant-content"></div>
+</div>
+</div>
+</div>
+</li>
