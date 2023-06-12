@@ -96,7 +96,7 @@ class GetProducts():
                     "retailerReviews":retailerReviews,
                     "retailerScore":retailerScore
                                                         }
-            sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: int(x[1]['productPrice'])))
+            sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: float(x[1]['productPrice'])))
             self.SpecificProductDetails = sorted_data
             print(f"Scrapped {productName} data")
             
@@ -105,12 +105,20 @@ class GetProducts():
         retailers = []
         product_name = ""
         for key,value in self.SpecificProductDetails.items():
+            retailer = value.get('ratailerName')
+            if retailer in retailers:
+                continue
             if product_name=="":
                 product_name = value.get('productName')
             prices.append(value.get('productPrice'))
-            retailers.append(value.get('ratailerName'))
+            retailers.append(retailer)
         plt.figure(figsize=(12,6))
-        plt.bar(retailers,prices)
+        bars = plt.bar(retailers,prices)
+
+        for bar, price in zip(bars, prices):
+            plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height(), 
+                    str(price), ha='center', va='bottom')
+
         plt.xlabel('Retailer')
         plt.ylabel('Product Price')
         plt.title(product_name)
