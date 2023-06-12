@@ -13,7 +13,7 @@ user_agent_rotator = UserAgent(software_names=software_names, hardware_type=hard
 
 class GetProducts(): 
     def __init__(self,query):
-        self.session = tls_client.Session(     client_identifier="chrome_113" )
+        self.session = tls_client.Session(client_identifier="chrome_113" )
         self.headers = {
             'Host': 'www.ceneo.pl',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/98.0.0.0',
@@ -22,12 +22,13 @@ class GetProducts():
         }
         self.query = query
         self.AllProductsDetails = {}
+        self.CurrentProductDetails = {}
         self.SpecificProductDetails = {}
     def ScrapProducts(self):
 
         keyword = self.query.replace(" ","+")
         req_scrap = self.session.get(f'https://www.ceneo.pl/Smartfony;szukaj-{keyword}', headers=self.headers)
-        print(req_scrap.text)
+        # print(req_scrap.text)
         if req_scrap.status_code != 200:
             print(f"Connection error, status code: {req_scrap.status_code}")
         else:
@@ -42,6 +43,7 @@ class GetProducts():
                     productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
                     productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
                     productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
+                    
                     try:
                         productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
                     except IndexError:
@@ -66,7 +68,7 @@ class GetProducts():
                 #     self.AllProductsDetails["errorCode"] = {
                 #         "ErrorInfo":"Wrong variable on input"
                 #     }
-            print(self.AllProductsDetails)
+            # print(self.AllProductsDetails)
     def GetSpecificProduct(self,productID):
         req_specific = self.session.get(f'https://www.ceneo.pl/{productID}',headers=self.headers)
         if req_specific.status_code !=200:
@@ -74,12 +76,37 @@ class GetProducts():
         else:
             soup = BeautifulSoup(req_specific.text,'lxml')
             container = soup.findAll("li",{"class":"product-offers__list__item js_productOfferGroupItem"})
+            productDesc = soup.find('div',{'class':'product-top__product-info__tags'}).text
+            productTitle = soup.title.text.split('-')[0][:-1]
+            productParams = soup.find('div',{"class":"full-specs"}).table
+
+            self.CurrentProductDetails['title'] = productTitle
+            self.CurrentProductDetails['desc'] = productDesc 
+
+            params = {}
+            for row in productParams.find_all('tr'):
+                th = row.find('th')
+                td = row.find('td')
+                if th and td:
+                    param_name = th.get_text(strip=True)
+                    param_value = td.get_text(strip=True)
+                    params[param_name] = param_value
+            
+            
+
             for data in container:
                 dataOfferID = str(data).split('data-offerid="')[1].split('"')[0]
                 productPrice = str(data).split('data-price="')[1].split('"')[0]
                 productName = str(data).split('data-gaproductname="')[1].split('"')[0].split('/')[1]
                 retailerReviews = str(data).split('data-mini-shop-info-url="')[2].split('</span>')[0].split('>')[1]
                 retailerScore = str(data).split('<span class="screen-reader-text">')[1].split('</span>')[0]
+                retailerLogo = data.find('div',{"class":"product-offer__store__logo"}).img.get('data-original')
+                try:
+                    freeship = data.find('div',{'class':'free-delivery-label'}).text
+                
+                except:
+                    freeship = 'Wysyłka dodatkowo płatna'
+
                 try:
                     retailerUrl = "https://www.ceneo.pl"+str(data).split('<a class="button button--primary button--flex go-to-shop" ')[1].split('rel')[0].split('href="')[1].split('"')[0]
                     ratailerName = str(data).split('data-shopurl="')[1].split('"')[0]
@@ -90,15 +117,18 @@ class GetProducts():
 
                 self.SpecificProductDetails[dataOfferID] = {
                     "productName":productName,
-                    "productPrice":productPrice,
+                    "productPrice":float(productPrice),
                     "ratailerName":ratailerName,
                     "retailerUrl":retailerUrl,
                     "retailerReviews":retailerReviews,
-                    "retailerScore":retailerScore
+                    "retailerScore":retailerScore,
+                    "retailerLogo":retailerLogo,
+                    "freeship":freeship
                                                         }
+                
             sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: int(x[1]['productPrice'])))
             self.SpecificProductDetails = sorted_data
-            print(f"Scrapped {productName} data")
+   
             
     def PriceGraph(self):
         prices = []
@@ -116,12 +146,10 @@ class GetProducts():
         plt.title(product_name)
         plt.xticks(rotation=90,fontsize=10)
         plt.tight_layout()
+        product_name = product_name.replace(' ','%20')
         plt.savefig(f'static/{product_name}.png')
         print("Graph successfully generated!")
+        print(product_name)
+        
 
         
-#iphone = GetProducts("iphone 14 pro")
-#iphone.ScrapProducts()
-#iphone.GetSpecificProduct("138536499")
-#iphone.PriceGraph()
-

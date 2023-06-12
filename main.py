@@ -18,7 +18,16 @@ def searchProduct():
     
 @app.route('/product/<productID>',methods=['GET'])
 def ProductPage(productID):
-    return render_template('productPage.html')
+    lookingData = GetProducts("N/A")
+    lookingData.GetSpecificProduct(productID)
+
+    output = {'details':lookingData.SpecificProductDetails,'productDetails':lookingData.CurrentProductDetails,'chart':lookingData.PriceGraph()}
+
+    # iphone = GetProducts('iphone 14 pro')
+    # iphone.ScrapProducts()
+    # iphone.GetSpecificProduct('138536499')
+    
+    return render_template('productPage.html',data=output)
 
 if __name__== "__main__":
-    app.run()
+    app.run(debug=True)
