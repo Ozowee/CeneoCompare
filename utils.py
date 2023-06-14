@@ -28,10 +28,9 @@ class GetProducts():
 
         keyword = self.query.replace(" ","+")
         req_scrap = self.session.get(f'https://www.ceneo.pl/Smartfony;szukaj-{keyword}', headers=self.headers)
-        # print(req_scrap.text)
         if req_scrap.status_code != 200:
             print(f"Connection error, status code: {req_scrap.status_code}")
-        else:
+        if req_scrap.status_code == 200:
             soup = BeautifulSoup(req_scrap.text,'lxml')
             container = soup.find_all("div",{"class":"cat-prod-row js_category-list-item js_clickHashData js_man-track-event"})
             
@@ -83,7 +82,7 @@ class GetProducts():
 
             productImageUrl = 'https:'+ str(containerImage).split('href="')[1].split('"')[0]
             # https://image.ceneostatic.pl/data/products/138536499/i-apple-iphone-14-pro-128gb-gwiezdna-czern.jpg
-            print(productImageUrl)
+            #print(productImageUrl)
 
             self.CurrentProductDetails['title'] = productTitle
             self.CurrentProductDetails['desc'] = productDesc 
@@ -138,6 +137,28 @@ class GetProducts():
                                                         }
             sorted_data = dict(sorted(self.SpecificProductDetails.items(), key=lambda x: float(x[1]['productPrice'])))
             self.SpecificProductDetails = sorted_data
+
+            soupReviews = BeautifulSoup(req_specific.text,'lxml')
+            containerReviews = soupReviews.findAll("div",{"class":"user-post user-post__card js_product-review"})
+            count = 0
+            self.SpecificProductDetails["Reviews"] = list()
+            for review in containerReviews:
+                if count < 5:
+                    user = review.find('span', {'class': 'user-post__author-name'}).text.strip()
+                    productRating = review.find('span',{'class':'user-post__score-count'}).text.strip()
+                    #productReview = str(review).split('<div class="user-post__text">')[1].split('</div>')[0] 
+                    reviewLike = review.find('button',{'data-new-icon':'vote-up'})['data-total-vote']
+                    reviewDisLike = review.find('button',{'data-new-icon':'vote-down'})['data-total-vote']
+                    count += 1
+                    self.SpecificProductDetails["Reviews"].append({
+                        "user":user,
+                        "productRating":productRating,
+                        "reviewLike":reviewLike,
+                        "reviewDisLike":reviewDisLike
+                    })
+            
+            
+            #print(self.SpecificProductDetails)
    
             
     def PriceGraph(self):
@@ -146,8 +167,8 @@ class GetProducts():
         product_name = "priceGraph"
         for key,value in self.SpecificProductDetails.items():
             retailer = value.get('ratailerName')
-            # if retailer in retailers:
-            #     continue
+            if retailer in retailers:
+                continue
             # if product_name=="":
             #     product_name = value.get('productName')
             prices.append(value.get('productPrice'))
@@ -167,5 +188,7 @@ class GetProducts():
         plt.savefig(f'static/{product_name}.png')
         print("Graph successfully generated!")
         
+#iphone = GetProducts("Iphone 14 pro")
+#iphone.GetSpecificProduct("138536499")
 
         
