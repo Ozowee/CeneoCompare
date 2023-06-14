@@ -166,13 +166,14 @@ class GetProducts():
         retailers = []
         product_name = "priceGraph"
         for key,value in self.SpecificProductDetails.items():
-            retailer = value.get('ratailerName')
-            if retailer in retailers:
-                continue
-            # if product_name=="":
-            #     product_name = value.get('productName')
-            prices.append(value.get('productPrice'))
-            retailers.append(retailer)
+            if key !='Reviews':
+                retailer = value.get('ratailerName')
+                if retailer in retailers:
+                    continue
+                # if product_name=="":
+                #     product_name = value.get('productName')
+                prices.append(value.get('productPrice'))
+                retailers.append(retailer)
         plt.figure(figsize=(12,6))
         bars = plt.bar(retailers,prices)
 
