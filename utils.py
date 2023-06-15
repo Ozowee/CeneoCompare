@@ -4,12 +4,30 @@ import matplotlib.pyplot as plt
 import numpy
 from bs4 import BeautifulSoup
 from pprint import pprint
+import random
 from random_user_agent.params import SoftwareName, HardwareType
 from random_user_agent.user_agent import UserAgent
 
 software_names = [SoftwareName.CHROME.value]
 hardware_type = [HardwareType.MOBILE__PHONE]
 user_agent_rotator = UserAgent(software_names=software_names, hardware_type=hardware_type)
+
+
+proxies_list =[]
+with open('proxy.txt') as f:
+        for line in f:
+                proxies_list.append(line.strip())
+f.close()
+
+def get_proxy():
+        proxy_chosen = random.choice(proxies_list)
+        proxy_ditails = proxy_chosen.split(":")
+        proxy = proxy_ditails
+        pelneproxy = proxy[2]+":"+proxy[3]+"@"+proxy[0]+":"+proxy[1]
+        proxies = {
+                'http': 'http://'+pelneproxy,
+                'https': 'http://'+pelneproxy}
+        return proxies
 
 class GetProducts(): 
     def __init__(self,query):
@@ -27,7 +45,7 @@ class GetProducts():
     def ScrapProducts(self):
 
         keyword = self.query.replace(" ","+")
-        req_scrap = self.session.get(f'https://www.ceneo.pl/Smartfony;szukaj-{keyword}', headers=self.headers)
+        req_scrap = self.session.get(f'https://www.ceneo.pl/Telefony_i_akcesoria;szukaj-{keyword}', headers=self.headers,proxy=get_proxy())
         if req_scrap.status_code != 200:
             print(f"Connection error, status code: {req_scrap.status_code}")
         if req_scrap.status_code == 200:
@@ -36,33 +54,43 @@ class GetProducts():
             
             for product in container:
                 singleProductDetails = []
+                #try:
+                productID = str(product).split('data-productid="')[1].split('"')[0]
+                productName = str(product).split('data-productname="')[1].split('"')[0]
+                productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
                 try:
-                    productID = str(product).split('data-productid="')[1].split('"')[0]
-                    productName = str(product).split('data-productname="')[1].split('"')[0]
-                    productPrice = str(product).split('data-productminprice="')[1].split('"')[0]
                     productScore = str(product).split('<span class="product-score">')[1].split('<span class="screen-reader-text">')[0].replace("\n","")
-                    productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
-                    
-                    try:
-                        productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
-                    except IndexError:
-                        req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=self.headers)
-                        if req_image.status_code != 200:
-                            print(f"Connection error, status code: {req_image.status_code}")
-                        else:
-                            soupImage = BeautifulSoup(req_image.text,'lxml')
-                            containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
-                            productImageUrl = "https:"+str(containerImage).split('href="')[1].split('"')[0]
                 except IndexError:
                     productScore = "N/A"
+                productReviews = str(product).split('<span class="prod-review__qo">')[1].split('</a>')[0].split('">')[1].replace("\n","")
+                
+                try:
+                    # 
+                    productImageUrl = "https:" + str(product.find('a',{"class":"js_clickHash js_seoUrl product-link go-to-product"}).img.get('data-original'))
+                    # print(productImageUrl)
+                    # productImageUrl = "https:"+str(product).split('data-original="')[1].split('"')[0]
+                    if productImageUrl == 'https:None':
+                        raise Exception
+                except:
+                    req_image = requests.get(f'https://www.ceneo.pl/{productID}', headers=self.headers)
+                    if req_image.status_code != 200:
+                        print(f"Connection error, status code: {req_image.status_code}")
+                    else:
+                        soupImage = BeautifulSoup(req_image.text,'lxml')
+                        containerImage = soupImage.find("a",{"class":"js_gallery-anchor js_gallery-item gallery-carousel__anchor"})
+                        
+                        productImageUrl = containerImage.img.get('src')
+                        # print(productImageUrl)
+                
                 #try:
-                self.AllProductsDetails[productName] = {
-                    "productID":productID,
-                    "productPrice":productPrice,
-                    "productIMG":productImageUrl,
-                    "productScore":productScore,
-                    "productReviews":productReviews
-                                                            }
+                if float(productPrice) > 300:
+                    self.AllProductsDetails[productName] = {
+                        "productID":productID,
+                        "productPrice":productPrice,
+                        "productIMG":productImageUrl,
+                        "productScore":productScore,
+                        "productReviews":productReviews
+                                                                }
                 # except UnboundLocalError:
                 #     self.AllProductsDetails["errorCode"] = {
                 #         "ErrorInfo":"Wrong variable on input"
